@@ -9,3 +9,9 @@ Route::get('/dashboard', function () {
 Route::get('/', function () {
     return view('frontend.home');
 });
+Route::get('/sign-in', function () {
+    return view('frontend.signin');
+});
+Route::get('/sign-up', function () {
+    return view('frontend.signup');
+});
