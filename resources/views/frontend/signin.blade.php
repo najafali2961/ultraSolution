@@ -23,7 +23,7 @@
     <header class="header d x q hc">
         <div class="hb hc md sf xn yn mo xp 2xl:ud-px-20">
             <div class="e ga kc un wp">
-                <a href="index.html" class="gb">
+                <a href="/" class="gb">
                     <img src="{{ asset('frontend/assets/src/img/logo/logo-dark.svg') }}" alt="logo"
                         class="jb tb kj">
                     <img src="{{ asset('frontend/assets/src/img/logo/logo-light.svg') }}" alt="logo" class="tb lj">
@@ -72,12 +72,12 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="signin.html" class="ib od pd lh mh sh gi cj ik">
+                                        <a href="/sign-in" class="ib od pd lh mh sh gi cj ik">
                                             Sign In
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="signup.html" class="ib od pd lh mh sh gi cj ik">
+                                        <a href="/sign-up" class="ib od pd lh mh sh gi cj ik">
                                             Sign Up
                                         </a>
                                     </li>
@@ -92,10 +92,10 @@
                     </nav>
                 </div>
                 <div class="d m q hb hc od qd ud yd lf an tn co jo">
-                    <a href="signup.html" class="hc ce de ye zf tf lh mh ii bj tn">
+                    <a href="/sign-in" class="hc ce de ye zf tf lh mh ii bj tn">
                         Sign In
                     </a>
-                    <a href="signup.html" class="hc ce de se zf tf lh mh ii bj tn">
+                    <a href="/sign-up" class="hc ce de se zf tf lh mh ii bj tn">
                         Sign Up
                     </a>
                 </div>
