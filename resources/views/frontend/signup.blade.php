@@ -421,8 +421,10 @@
                 <div class="hc rf sk/2 am/12 qn/12 vp/12">
                     <div class="ta mc">
                         <a href="index.html" class="xa gb">
-                            <img src="src/images/logo/logo-dark.svg" alt="logo" class="jb tb kj">
-                            <img src="src/images/logo/logo-light.svg" alt="logo" class="tb lj">
+                            <img src="{{ asset('frontend/assets/src/img/logo/logo-dark.svg') }}" alt="logo"
+                                class="jb tb kj">
+                            <img src="{{ asset('frontend/assets/src/img/logo/logo-light.svg') }}" alt="logo"
+                                class="tb lj">
                         </a>
 
                         <p class="oa sh gi">
@@ -439,11 +441,10 @@
                             </a>
                             <a href="javascript:void(0)" name="social-link" aria-label="social-link"
                                 class="gi cj ik">
-                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                        d="M13.9831 19.25L9.82094 13.3176L4.61058 19.25H2.40625L8.843 11.9233L2.40625 2.75H8.06572L11.9884 8.34127L16.9034 2.75H19.1077L12.9697 9.73737L19.6425 19.25H13.9831ZM16.4378 17.5775H14.9538L5.56249 4.42252H7.04674L10.808 9.6899L11.4584 10.6039L16.4378 17.5775Z"
-                                        fill="currentColor"></path>
+                                <svg width="24" height="24" viewBox="0 0 24 24" class="jf">
+                                    <path
+                                        d="M22.1621 5.65593C21.3986 5.99362 20.589 6.2154 19.7601 6.31393C20.6338 5.79136 21.2878 4.96894 21.6001 3.99993C20.7801 4.48793 19.8811 4.82993 18.9441 5.01493C18.3147 4.34151 17.4804 3.89489 16.571 3.74451C15.6616 3.59413 14.728 3.74842 13.9153 4.18338C13.1026 4.61834 12.4564 5.30961 12.0772 6.14972C11.6979 6.98983 11.6068 7.93171 11.8181 8.82893C10.1552 8.74558 8.52838 8.31345 7.04334 7.56059C5.55829 6.80773 4.24818 5.75098 3.19805 4.45893C2.82634 5.09738 2.63101 5.82315 2.63205 6.56193C2.63205 8.01193 3.37005 9.29293 4.49205 10.0429C3.82806 10.022 3.17868 9.84271 2.59805 9.51993V9.57193C2.59825 10.5376 2.93242 11.4735 3.5439 12.221C4.15538 12.9684 5.00653 13.4814 5.95305 13.6729C5.33667 13.84 4.69036 13.8646 4.06305 13.7449C4.32992 14.5762 4.85006 15.3031 5.55064 15.824C6.25123 16.345 7.09718 16.6337 7.97005 16.6499C7.10253 17.3313 6.10923 17.8349 5.04693 18.1321C3.98464 18.4293 2.87418 18.5142 1.77905 18.3819C3.69075 19.6114 5.91615 20.2641 8.18905 20.2619C15.8821 20.2619 20.0891 13.8889 20.0891 8.36193C20.0891 8.18193 20.0841 7.99993 20.0761 7.82193C20.8949 7.2301 21.6017 6.49695 22.1631 5.65693L22.1621 5.65593Z">
+                                    </path>
                                 </svg>
                             </a>
                             <a href="javascript:void(0)" name="social-link" aria-label="social-link"
@@ -614,15 +615,102 @@
         <span class="eb nb bc hd le je oe"></span>
     </a>
     <!-- ====== Back To Top End ===== -->
-    <script defer="" src="bundle.js"></script>
+
+    <script>
+        // section menu active
+        function onScroll(event) {
+            const sections = document.querySelectorAll(".menu-scroll");
+            const scrollPos =
+                window.pageYOffset ||
+                document.documentElement.scrollTop ||
+                document.body.scrollTop;
+
+            for (let i = 0; i < sections.length; i++) {
+                const currLink = sections[i];
+                const val = currLink.getAttribute("href");
+                const refElement = document.querySelector(val);
+                const scrollTopMinus = scrollPos + 73;
+                if (
+                    refElement.offsetTop <= scrollTopMinus &&
+                    refElement.offsetTop + refElement.offsetHeight > scrollTopMinus
+                ) {
+                    document.querySelector(".menu-scroll").classList.remove("active");
+                    currLink.classList.add("active");
+                } else {
+                    currLink.classList.remove("active");
+                }
+            }
+        }
+
+        window.document.addEventListener("scroll", onScroll);
+        // ==== About Tabs
+        const tabButtons = document.querySelectorAll(".tabButtons button");
+        const tabPanels = document.querySelectorAll(".tabPanel");
+
+        function showPanel(panelIndex) {
+            tabButtons.forEach(function(node) {
+                node.classList.remove(
+                    "hi",
+                    "ne",
+                    "rj",
+                );
+            });
+            tabButtons[panelIndex].classList.add(
+                "hi",
+                "ck",
+                "ne",
+                "rj",
+            );
+            tabPanels.forEach(function(node) {
+                node.style.display = "none";
+            });
+            tabPanels[panelIndex].style.display = "flex";
+        }
+        showPanel(0);
+    </script>
+    <script defer="" src="{{ asset('frontend/assets/js/bundle.js') }}"></script>
+    <script>
+        (function() {
+            function c() {
+                var b = a.contentDocument || a.contentWindow.document;
+                if (b) {
+                    var d = b.createElement('script');
+                    d.innerHTML =
+                        "window.__CF$cv$params={r:'903645c23858e193',t:'MTczNzExNjE0NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+                    b.getElementsByTagName('head')[0].appendChild(d)
+                }
+            }
+            if (document.body) {
+                var a = document.createElement('iframe');
+                a.height = 1;
+                a.width = 1;
+                a.style.position = 'absolute';
+                a.style.top = 0;
+                a.style.left = 0;
+                a.style.border = 'none';
+                a.style.visibility = 'hidden';
+                document.body.appendChild(a);
+                if ('loading' !== document.readyState) c();
+                else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c);
+                else {
+                    var e = document.onreadystatechange || function() {};
+                    document.onreadystatechange = function(b) {
+                        e(b);
+                        'loading' !== document.readyState && (document.onreadystatechange = e, c())
+                    }
+                }
+            }
+        })();
+    </script><iframe height="1" width="1"
+        style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;"></iframe>
     <script defer=""
         src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"
         integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
-        data-cf-beacon="{&quot;rayId&quot;:&quot;903680f1bb5eed26&quot;,&quot;version&quot;:&quot;2025.1.0&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;9a6015d415bb4773a0bff22543062d3b&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfSpeedBrain&quot;:true,&quot;cfCacheStatus&quot;:true}}}"
+        data-cf-beacon="{&quot;rayId&quot;:&quot;903645c23858e193&quot;,&quot;version&quot;:&quot;2025.1.0&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;9a6015d415bb4773a0bff22543062d3b&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfSpeedBrain&quot;:true,&quot;cfCacheStatus&quot;:true}}}"
         crossorigin="anonymous"></script>
 
 
-    <div id="veepn-breach-alert"></div>
+    <div id="veepn-guard-alert"></div>
     <style>
         @font-face {
             font-family: FigtreeVF;
@@ -631,7 +719,7 @@
             font-display: swap
         }
     </style>
-    <div id="veepn-guard-alert"></div>
+    <div id="veepn-breach-alert"></div>
     <style>
         @font-face {
             font-family: FigtreeVF;
