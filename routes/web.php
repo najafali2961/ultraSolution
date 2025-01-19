@@ -7,6 +7,9 @@ use App\Http\Controllers\Auth\SocialiteController;
 Route::get('/', function () {
     return view('frontend.home');
 });
+Route::get('/home', function () {
+    return view('frontend.home');
+});
 
 Route::get('/dashboard', function () {
     return view('admin.dashboard');

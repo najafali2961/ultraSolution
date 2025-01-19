@@ -69,13 +69,28 @@
                   </nav>
               </div>
               <div class="d m q hb hc od qd ud yd lf an tn co jo">
-                  <a href="{{ route('login') }}" class="hc ce de ye zf tf lh mh ii bj tn">
-                      Sign In
-                  </a>
-                  <a href="{{ route('register') }}" class="hc ce de se zf tf lh mh ii bj tn">
-                      Sign Up
-                  </a>
+                  @guest
+                      <a href="{{ route('login') }}" class="hc ce de ye zf tf lh mh ii bj tn">
+                          Sign In
+                      </a>
+                      <a href="{{ route('register') }}" class="hc ce de se zf tf lh mh ii bj tn">
+                          Sign Up
+                      </a>
+                  @else
+                      <span class="username">
+                          {{ Auth::user()->name }}
+                      </span>
+                      <a href="{{ route('logout') }}" class="hc ce de se zf tf lh mh ii bj tn"
+                          onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                          Logout
+                      </a>
+
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                          @csrf
+                      </form>
+                  @endguest
               </div>
+
           </div>
           <div class="d y/2 v ea hb ed/2 od an vn">
               <label for="darkToggler" class="z-40 jq kq e hb pb dc id od pd ee ei ck vl zl">
