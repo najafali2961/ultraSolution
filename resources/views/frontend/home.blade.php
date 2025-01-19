@@ -1,7 +1,7 @@
 @extends('frontend.layouts.app')
 @section('content')
     <!-- ===== Hero Section Start ===== -->
-    @include('frontend.home.hero')
+    @include('frontend.home.hero', ['hero' => $hero])
     <!-- ===== Hero Section End ===== -->
 
     <!-- ===== Features Section Start ===== -->
