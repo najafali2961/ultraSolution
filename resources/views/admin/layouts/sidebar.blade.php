@@ -27,10 +27,8 @@
                              <div class="sidebar-user">
                                  <div class="d-flex justify-content-center">
                                      <div class="flex-shrink-0">
-
-
-                                         @if ($user->profile_picture)
-                                             <img src="{{ asset('storage/profile_pictures/' . $user->profile_picture) }}"
+                                         @if (auth()->user()->profile_picture)
+                                             <img src="{{ asset('storage/profile_pictures/' . auth()->user()->profile_picture) }}"
                                                  alt="Profile Picture" class="rounded avatar img-fluid me-1">
                                          @else
                                              <img src="{{ asset('images/default-profile.png') }}"
