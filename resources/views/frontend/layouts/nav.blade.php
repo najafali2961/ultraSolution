@@ -11,7 +11,7 @@
                   <nav>
                       <ul class="navbar hb ld od pd wd lh wn zn ao bo">
                           <li>
-                              <a href="#home" class="menu-scroll active ib od pd lh mh sh gi cj ik">
+                              <a href="/" class="menu-scroll active ib od pd lh mh sh gi cj ik">
                                   Home
                               </a>
                           </li>
