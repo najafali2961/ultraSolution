@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('subtitle');
             $table->string('button_text');
-            $table->string('button_link');
+            $table->text('description'); // Replacing button_link
             $table->string('image_1');
             $table->string('image_2');
             $table->timestamps();

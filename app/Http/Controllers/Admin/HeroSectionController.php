@@ -21,9 +21,9 @@ class HeroSectionController extends Controller
             'title' => 'required',
             'subtitle' => 'required',
             'button_text' => 'required',
-            'button_link' => 'required|url',
-            'image_1' => 'nullable|image|max:2048', // Max size 2MB
-            'image_2' => 'nullable|image|max:2048', // Max size 2MB
+            'description' => 'required|string|max:1000',
+            'image_1' => 'nullable|image|max:2048',
+            'image_2' => 'nullable|image|max:2048',
         ]);
 
         $hero = HeroSection::first();
@@ -44,7 +44,7 @@ class HeroSectionController extends Controller
             'title' => $request->title,
             'subtitle' => $request->subtitle,
             'button_text' => $request->button_text,
-            'button_link' => $request->button_link,
+            'description' => $request->description,
         ]);
 
         return redirect()->back()->with('success', 'Hero section updated successfully');

@@ -13,7 +13,7 @@ class HeroSection extends Model
         'title',
         'subtitle',
         'button_text',
-        'button_link',
+        'description',
         'image_1',
         'image_2',
 

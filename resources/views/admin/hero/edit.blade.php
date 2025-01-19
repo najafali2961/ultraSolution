@@ -41,14 +41,14 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label" for="button_link">Button Link</label>
-                        <input type="url" class="form-control @error('button_link') is-invalid @enderror"
-                            id="button_link" name="button_link" value="{{ old('button_link', $hero->button_link) }}"
-                            required>
-                        @error('button_link')
+                        <label class="form-label" for="description">Description</label>
+                        <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description"
+                            rows="4" required>{{ old('description', $hero->description) }}</textarea>
+                        @error('description')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
+
 
                     <div class="mb-3">
                         <label class="form-label" for="image_1">Image 1</label>

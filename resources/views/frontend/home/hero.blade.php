@@ -18,7 +18,7 @@
                     </h1>
                     <p class="wow fadeInUp pa sh gi" data-wow-delay=".4s"
                         style="visibility: visible; animation-delay: 0.4s;">
-                        {{ $hero->button_link }}
+                        {{ $hero->description }}
                     </p>
                     <div class="wow fadeInUp hb md od pd zn" data-wow-delay=".5s"
                         style="visibility: visible; animation-delay: 0.5s;">
