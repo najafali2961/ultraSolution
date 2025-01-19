@@ -29,28 +29,35 @@ class ProfileController extends Controller
     {
         $user = $request->user();
         $user->fill($request->validated());
-        if ($user->isDirty('email')) {
-            $user->email_verified_at = null;
-        }
 
         if ($request->hasFile('profile_picture')) {
-
             $request->validate([
                 'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
 
+            // Delete the old profile picture if it exists
             if ($user->profile_picture && Storage::exists('public/profile_pictures/' . $user->profile_picture)) {
                 Storage::delete('public/profile_pictures/' . $user->profile_picture);
             }
+
+            // Store the new profile picture in the 'public' disk
             $profilePicture = $request->file('profile_picture');
             $profilePictureName = time() . '.' . $profilePicture->getClientOriginalExtension();
-            $profilePicture->storeAs('public/profile_pictures', $profilePictureName);
+            $profilePicture->storeAs('profile_pictures', $profilePictureName, 'public'); // Note 'public' here
+
+            // Save the new profile picture name in the database
             $user->profile_picture = $profilePictureName;
         }
+
+
+
+        // Save the updated user data
         $user->save();
 
+        // Redirect with success message
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
+
 
     /**
      * Delete the user's account.

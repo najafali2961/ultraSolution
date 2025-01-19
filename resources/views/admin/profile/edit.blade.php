@@ -35,45 +35,71 @@
                                 <h5 class="mb-0 card-title">Profile Information</h5>
                             </div>
                             <div class="card-body">
-                                <form action="{{ route('profile.update') }}" method="POST">
+                                <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     @method('PATCH')
-
-                                    <div class="mb-3">
-                                        <label class="form-label" for="name">{{ __('Name') }}</label>
-                                        <input type="text" class="form-control" id="name" name="name"
-                                            value="{{ old('name', $user->name) }}" required autofocus autocomplete="name">
-                                        @error('name')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label class="form-label" for="email">{{ __('Email') }}</label>
-                                        <input type="email" class="form-control" id="email" name="email"
-                                            value="{{ old('email', $user->email) }}" required autocomplete="username">
-                                        @error('email')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-
-                                    @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && !$user->hasVerifiedEmail())
-                                        <div class="mt-3">
-                                            <p class="text-muted">{{ __('Your email address is unverified.') }}</p>
-                                            <button form="send-verification" class="btn btn-link">
-                                                {{ __('Click here to re-send the verification email.') }}
-                                            </button>
-
-                                            @if (session('status') === 'verification-link-sent')
-                                                <p class="mt-2 text-success">
-                                                    {{ __('A new verification link has been sent to your email address.') }}
-                                                </p>
-                                            @endif
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="mb-3">
+                                                <label class="form-label" for="name">{{ __('Name') }}</label>
+                                                <input type="text" class="form-control" id="name" name="name"
+                                                    value="{{ old('name', $user->name) }}" required autofocus
+                                                    autocomplete="name">
+                                                @error('name')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label" for="email">{{ __('Email') }}</label>
+                                                <input type="email" class="form-control" id="email" name="email"
+                                                    value="{{ old('email', $user->email) }}" required
+                                                    autocomplete="username">
+                                                @error('email')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
                                         </div>
-                                    @endif
+                                        <div class="col-md-4">
+                                            <div class="text-center">
+                                                <img id="profile_picture_preview"
+                                                    src="{{ $user->profile_picture ? Storage::url('profile_pictures/' . $user->profile_picture) : asset('img/avatars/avatar.jpg') }}"
+                                                    alt="Profile Picture" class="mt-2 rounded-circle img-responsive"
+                                                    width="128" height="128">
+                                                <div class="mt-2">
+                                                    <span class="btn btn-primary"
+                                                        onclick="document.getElementById('profile_picture').click();">
+                                                        <i class="fas fa-upload"></i> Upload
+                                                    </span>
+                                                    <input type="file" class="d-none" id="profile_picture"
+                                                        name="profile_picture" accept="image/*"
+                                                        onchange="previewImage(event)">
+                                                </div>
+                                            </div>
+                                            @error('profile_picture')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+
+                                        <script>
+                                            function previewImage(event) {
+                                                const file = event.target.files[0];
+                                                const reader = new FileReader();
+                                                reader.onload = function(e) {
+                                                    document.getElementById('profile_picture_preview').src = e.target.result;
+                                                };
+                                                reader.readAsDataURL(file);
+                                            }
+                                        </script>
+
+                                    </div>
+
+
+
+
 
                                     <button type="submit" class="btn btn-primary">{{ __('Save Changes') }}</button>
                                 </form>
+
                             </div>
                         </div>
                     </div>

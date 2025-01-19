@@ -27,9 +27,16 @@
                              <div class="sidebar-user">
                                  <div class="d-flex justify-content-center">
                                      <div class="flex-shrink-0">
-                                         <!-- Display user's avatar or a default avatar if not set -->
-                                         <img src="{{ auth()->user()->avatar ? asset('storage/' . auth()->user()->avatar) : asset('admin/assets/img/avatars/avatar.jpg') }}"
-                                             class="rounded avatar img-fluid me-1" alt="{{ auth()->user()->name }}">
+
+
+                                         @if ($user->profile_picture)
+                                             <img src="{{ asset('storage/profile_pictures/' . $user->profile_picture) }}"
+                                                 alt="Profile Picture" class="rounded avatar img-fluid me-1">
+                                         @else
+                                             <img src="{{ asset('images/default-profile.png') }}"
+                                                 alt="Default Profile Picture" class="rounded avatar img-fluid me-1">
+                                         @endif
+
                                      </div>
                                      <div class="flex-grow-1 ps-2">
                                          <!-- Display user's name dynamically -->
