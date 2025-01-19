@@ -48,42 +48,7 @@
                                                      <circle cx="12" cy="7" r="4"></circle>
                                                  </svg> Profile
                                              </a>
-                                             <!-- Analytics link -->
-                                             <a class="dropdown-item" href="#">
-                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                     viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                     class="align-middle feather feather-pie-chart me-1">
-                                                     <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
-                                                     <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
-                                                 </svg> Analytics
-                                             </a>
-                                             <div class="dropdown-divider"></div>
-                                             <!-- Settings & Privacy link -->
-                                             <a class="dropdown-item" href="/pages-settings">
-                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                     viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                     class="align-middle feather feather-settings me-1">
-                                                     <circle cx="12" cy="12" r="3"></circle>
-                                                     <path
-                                                         d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
-                                                     </path>
-                                                 </svg> Settings & Privacy
-                                             </a>
-                                             <!-- Help Center link -->
-                                             <a class="dropdown-item" href="#">
-                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                     viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                     class="align-middle feather feather-help-circle me-1">
-                                                     <circle cx="12" cy="12" r="10"></circle>
-                                                     <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
-                                                     <line x1="12" y1="17" x2="12.01"
-                                                         y2="17"></line>
-                                                 </svg> Help Center
-                                             </a>
-                                             <div class="dropdown-divider"></div>
+
                                              <!-- Log out link -->
                                              <a class="dropdown-item" href="{{ route('logout') }}"
                                                  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -110,8 +75,8 @@
                                  <li class="sidebar-item active">
                                      <a data-bs-target="#dashboards" data-bs-toggle="collapse" class="sidebar-link">
                                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                             viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                             stroke-linecap="round" stroke-linejoin="round"
                                              class="align-middle feather feather-sliders">
                                              <line x1="4" y1="21" x2="4" y2="14">
                                              </line>
@@ -137,10 +102,7 @@
                                          data-bs-parent="#sidebar">
                                          <li class="sidebar-item active"><a class="sidebar-link"
                                                  href="{{ route('admin.hero_section.edit') }}">Hero</a></li>
-                                         <li class="sidebar-item"><a class="sidebar-link"
-                                                 href="/dashboard-ecommerce">E-Commerce </a></li>
-                                         <li class="sidebar-item"><a class="sidebar-link"
-                                                 href="/dashboard-crypto">Crypto </a></li>
+
                                      </ul>
                                  </li>
 
