@@ -49,12 +49,12 @@
                                       </a>
                                   </li>
                                   <li>
-                                      <a href="/sign-in" class="ib od pd lh mh sh gi cj ik">
+                                      <a href="{{ route('login') }}" class="ib od pd lh mh sh gi cj ik">
                                           Sign In
                                       </a>
                                   </li>
                                   <li>
-                                      <a href="/sign-up" class="ib od pd lh mh sh gi cj ik">
+                                      <a href="{{ route('register') }}" class="ib od pd lh mh sh gi cj ik">
                                           Sign Up
                                       </a>
                                   </li>
@@ -69,10 +69,10 @@
                   </nav>
               </div>
               <div class="d m q hb hc od qd ud yd lf an tn co jo">
-                  <a href="/sign-in" class="hc ce de ye zf tf lh mh ii bj tn">
+                  <a href="{{ route('login') }}" class="hc ce de ye zf tf lh mh ii bj tn">
                       Sign In
                   </a>
-                  <a href="/sign-up" class="hc ce de se zf tf lh mh ii bj tn">
+                  <a href="{{ route('register') }}" class="hc ce de se zf tf lh mh ii bj tn">
                       Sign Up
                   </a>
               </div>

@@ -1,9 +1,5 @@
 @extends('frontend.layouts.app')
 @section('content')
-    <!-- ===== Header Start ===== -->
-    @include('frontend.layouts.nav')
-    <!-- ===== Header End ===== -->
-
     <!-- ===== Hero Section Start ===== -->
     @include('frontend.home.hero')
     <!-- ===== Hero Section End ===== -->
@@ -47,8 +43,4 @@
     <!-- ===== CTA Section Start ===== -->
     @include('frontend.home.cta')
     <!-- ===== CTA Section End ===== -->
-
-    <!-- ===== Footer Start ===== -->
-    @include('frontend.layouts.footer')
-    <!-- ===== Footer End  ===== -->
 @endsection

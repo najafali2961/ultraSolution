@@ -19,8 +19,13 @@
 </head>
 
 <body class="zj" cz-shortcut-listen="true">
+    <!-- ===== Header Start ===== -->
+    @include('frontend.layouts.nav')
+    <!-- ===== Header End ===== -->
     @yield('content')
-
+    <!-- ===== Footer Start ===== -->
+    @include('frontend.layouts.footer')
+    <!-- ===== Footer End  ===== -->
     <!-- ====== Back To Top Start ===== -->
     <a href="javascript:void(0)" class="mq back-to-top c p w t fa jb lb zb od pd ge ye ii pi vi">
         <span class="eb nb bc hd le je oe"></span>
