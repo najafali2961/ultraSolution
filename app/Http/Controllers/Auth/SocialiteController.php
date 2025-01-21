@@ -1,57 +1,46 @@
 <?php
 
+
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Support\Facades\DB;
 
 class SocialiteController extends Controller
 {
-    // Redirect to Google
-    public function redirectToGoogle()
+    // Redirect to Provider
+    public function redirect($provider)
     {
-        return Socialite::driver('google')->redirect();
+        return Socialite::driver($provider)->redirect();
     }
 
-    // Handle Google callback
-    public function handleGoogleCallback()
+    public function callback($provider)
     {
-        $user = Socialite::driver('google')->stateless()->user();
+        try {
+            $socialUser = Socialite::driver($provider)->user();
 
-        $this->handleSocialUser($user, 'google');
-    }
 
-    // Redirect to Facebook
-    public function redirectToFacebook()
-    {
-        return Socialite::driver('facebook')->redirect();
-    }
+            $fullName = $socialUser->getName();
 
-    // Handle Facebook callback
-    public function handleFacebookCallback()
-    {
-        $user = Socialite::driver('facebook')->stateless()->user();
 
-        $this->handleSocialUser($user, 'facebook');
-    }
 
-    private function handleSocialUser($socialUser, $provider)
-    {
-        $user = User::updateOrCreate(
-            [
-                'email' => $socialUser->getEmail(),
-            ],
-            [
-                'name' => $socialUser->getName(),
-                'provider' => $provider,
-                'provider_id' => $socialUser->getId(),
-            ]
-        );
-
-        Auth::login($user);
-
-        return redirect('/dashboard');
+            $user = User::updateOrCreate(
+                ['email' => $socialUser->getEmail()],
+                [
+                    'name' => $fullName,
+                    'email' => $socialUser->getEmail(),
+                    'provider_id' => $socialUser->getId(),
+                    'provider_name' => $provider,
+                ]
+            );
+            Auth::login($user);
+            return redirect()->route('home');
+        } catch (\Exception $e) {
+            // Handle errors
+            return redirect()->route('login')->withErrors(['error' => 'Login failed! ' . $e->getMessage()]);
+        }
     }
 }

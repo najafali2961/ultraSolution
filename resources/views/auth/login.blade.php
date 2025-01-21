@@ -14,7 +14,7 @@
                                 Sign In with Social Media
                             </h3>
                             <div class="pa hb od td">
-                                <a href="{{ route('auth.google') }}">
+                                <a href="{{ route('social.redirect', 'google') }}">
                                     <button class="hb tb fc od pd de he sh gi sj xj tk _k">
 
                                         <span class="dl">
@@ -47,7 +47,7 @@
 
 
                                     </button> </a>
-                                <a href="{{ route('auth.facebook') }}">
+                                <a href="{{ route('social.redirect', 'facebook') }}">
                                     <button class="hb tb fc od pd de he sj xj">
                                         <svg width="12" height="22" viewBox="0 0 12 22" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
