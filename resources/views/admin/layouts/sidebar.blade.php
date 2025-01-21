@@ -27,13 +27,11 @@
                              <div class="sidebar-user">
                                  <div class="d-flex justify-content-center">
                                      <div class="flex-shrink-0">
-                                         @if (auth()->user()->profile_picture)
-                                             <img src="{{ asset('storage/profile_pictures/' . auth()->user()->profile_picture) }}"
-                                                 alt="Profile Picture" class="rounded avatar img-fluid me-1">
-                                         @else
-                                             <img src="{{ asset('images/default-profile.png') }}"
-                                                 alt="Default Profile Picture" class="rounded avatar img-fluid me-1">
-                                         @endif
+                                         <img src="{{ auth()->user()->profile_picture
+                                             ? asset('storage/profile_pictures/' . auth()->user()->profile_picture)
+                                             : '/frontend/assets/src/img/team/image-2.jpg' }}"
+                                             alt="Profile Picture" class="rounded avatar img-fluid me-1">
+
 
                                      </div>
                                      <div class="flex-grow-1 ps-2">

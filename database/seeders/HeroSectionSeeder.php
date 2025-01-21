@@ -14,8 +14,7 @@ class HeroSectionSeeder extends Seeder
             'subtitle' => 'Your success starts here',
             'button_text' => 'Get Started',
             'description' => 'This is a description of the hero section.',
-            'image_1' => 'hero_images/default_image1.jpg', // Default image path
-            'image_2' => 'hero_images/default_image2.jpg', // Default image path
+
             'created_at' => now(),
             'updated_at' => now(),
         ]);

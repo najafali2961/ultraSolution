@@ -62,9 +62,12 @@
                                         <div class="col-md-4">
                                             <div class="text-center">
                                                 <img id="profile_picture_preview"
-                                                    src="{{ $user->profile_picture ? Storage::url('profile_pictures/' . $user->profile_picture) : asset('img/avatars/avatar.jpg') }}"
+                                                    src="{{ auth()->user()->profile_picture
+                                                        ? asset('storage/profile_pictures/' . auth()->user()->profile_picture)
+                                                        : '/frontend/assets/src/img/team/image-2.jpg' }}"
                                                     alt="Profile Picture" class="mt-2 rounded-circle img-responsive"
                                                     width="128" height="128">
+
                                                 <div class="mt-2">
                                                     <span class="btn btn-primary"
                                                         onclick="document.getElementById('profile_picture').click();">

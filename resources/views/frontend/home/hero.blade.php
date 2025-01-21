@@ -50,16 +50,16 @@
                 <div class="wow fadeInRight e ca ma ub hc zc hn" data-wow-delay=".3s"
                     style="visibility: visible; animation-delay: 0.3s;">
                     <div class="d x u on/12">
-                        @if ($hero->image_1)
-                            <img src="{{ asset('storage/' . $hero->image_1) }}" alt="Hero Image 1" />
-                        @endif
+                        <img src="{{ $hero->image_1 ? asset('storage/' . $hero->image_1) : 'frontend/assets/src/img/hero/image-2.jpg' }}"
+                            alt="Hero Image 1" />
+
                     </div>
                     <div class="d q m ba">
 
 
-                        @if ($hero->image_2)
-                            <img src="{{ asset('storage/' . $hero->image_2) }}" alt="Hero Image 2" />
-                        @endif
+                        <img src="{{ $hero->image_2 ? asset('storage/' . $hero->image_2) : asset('frontend/assets/src/img/hero/image-1.jpg') }}"
+                            alt="Hero Image 2" />
+
 
                         <div class="d l j aa wb hc he ne pe ye df ui tj uj _j ak"></div>
                     </div>
